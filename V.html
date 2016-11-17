@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style>
+#box {
+	position: relative;
+
+}
+#box div{
+	border:1px solid #000;
+	background: red;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	text-align: center;
+	line-height: 100px;
+	color: #fff;
+}
+input{
+	width: 100px;
+}
+</style>
+<script>
+window.onload = function () {
+	var inp = document.getElementById('inp');
+	var box = document.getElementById('box');
+	var div = box.getElementsByTagName('div');
+	var arr = [L1,L2,L3,L4];
+	var now = 0;
+	console.log (div);
+	
+		
+		inp.onclick = function () {
+			
+			if(now%4==0){
+				L1 ();
+			}else if(now%4==1){
+				L2 ();
+			}else if(now%4==2){
+				L3 ();
+			}else{
+				L4 ();
+			}
+			now++;
+		}
+			function L1 () {
+				var T = 0;
+				var L = 0;
+				for(var i=0;i<div.length;i++){
+			div[i].style.cssText = 'left:'+(L*100)+'px;top:'+(T*100)+'px';	
+			T++;
+			if (i<2){
+				L++;
+			}else{
+				L--;
+			}
+			}
+			}
+			function L2 () {
+				var T = 0;
+				var L = 0;
+				for(var i=0;i<div.length;i++){
+			div[i].style.cssText = 'left:'+(L*100)+'px;top:'+(T*100)+'px';	
+			L++;
+			if (i<2){
+				T++;
+			}else{
+				T--;
+			}
+			}
+			}
+			function L3 () {
+				var T = 0;
+				var L = 4;
+				for(var i=0;i<div.length;i++){
+			div[i].style.cssText = 'left:'+(L*100)+'px;top:'+(T*100)+'px';	
+			T++;
+			if (i<2){
+				L--;
+			}else{
+				L++;
+			}
+			}
+			}
+			function L4 () {
+				var L = 0;
+				var T = 4;
+				for(var i=0;i<div.length;i++){
+			div[i].style.cssText = 'left:'+(L*100)+'px;top:'+(T*100)+'px';	
+			L++;
+			if (i<2){
+				T--;
+			}else{
+				T++;
+			}
+			}
+			}
+};
+</script>
+</head>
+<body>
+	<input id="inp" type="button"value="点一下试试">
+	<div id="box">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+	</div>
+</body>
+</html>
